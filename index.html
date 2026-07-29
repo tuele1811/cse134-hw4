@@ -3,64 +3,115 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CSS layout demos</title>
+  <title>09 · Grid holy grail</title>
   <link rel="stylesheet" href="vars.css">
   <link rel="stylesheet" href="global.css">
   <!--
-    INDEX
-    Nine standalone demos, one layout technique each, in teaching order:
-    flow → float → positioning → flexbox → grid. Each file carries its
-    own explanation as a comment in the <head>; the shared vars.css and
-    global.css hold only tokens, reset, type, and color — never layout.
+    GRID HOLY GRAIL
+    The full holy grail in ONE grid container — no wrappers, no nesting.
+    grid-template-areas draws the layout as ASCII art: header and footer
+    span all three columns, nav | main | aside share the middle row.
+    Because every region is placed by name, the single media query below
+    re-draws the whole page as one column just by rewriting the map.
   -->
   <style>
     body {
-      max-width: var(--measure);
-      margin-inline: auto;
-      padding: var(--space-4) var(--space-3);
-    }
+      --nav-width: 10rem;
+      --aside-width: 12rem;
 
-    h1 {
-      padding-block-end: var(--space-1);
-      border-block-end: var(--rule);
-    }
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "nav    main   aside"
+        "footer footer footer";
+      grid-template-columns: var(--nav-width) 1fr var(--aside-width);
+      grid-template-rows: auto 1fr auto;
+      min-height: 100svh;
 
-    ol {
-      margin: 0;
-      padding-inline-start: var(--space-3);
-      list-style: decimal-leading-zero;
-
-      li {
+      > header {
+        grid-area: header;
+        padding: var(--space-2) var(--space-3);
         border-block-end: var(--border);
+        background: var(--panel);
+      }
 
-        &::marker {
-          color: var(--accent);
-          font-weight: 700;
+      > nav {
+        grid-area: nav;
+        padding: var(--space-2);
+        border-inline-end: var(--border);
+        background: var(--panel);
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
         }
+      }
 
-        a {
-          display: block;
-          padding-block: var(--space-2);
-          text-decoration: none;
+      > main {
+        grid-area: main;
+        padding: var(--space-3);
+      }
+
+      > aside {
+        grid-area: aside;
+        padding: var(--space-2);
+        border-inline-start: var(--border);
+        background: var(--panel);
+      }
+
+      > footer {
+        grid-area: footer;
+        padding: var(--space-2) var(--space-3);
+        border-block-start: var(--border);
+        background: var(--panel);
+      }
+
+      @media (max-width: 40rem) {
+        grid-template-areas:
+          "header"
+          "nav"
+          "main"
+          "aside"
+          "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+
+        > nav,
+        > aside {
+          border-inline: none;
+          border-block-end: var(--border);
         }
       }
     }
   </style>
 </head>
 <body>
-  <h1>CSS layout demos</h1>
-  <p>Basic layout syntax, one technique per file, in teaching order. View source on any demo — the explanation is a comment in the <code>&lt;head&gt;</code>.</p>
+  <header>
+    <h1>09 · Grid holy grail</h1>
+  </header>
 
-  <ol>
-    <li><a href="01-flow.html">Normal flow — block, inline, and a centered column</a></li>
-    <li><a href="02-float.html">Float — text wrapping a figure, and clear</a></li>
-    <li><a href="03-relative-position.html">Relative position — nudged, space preserved</a></li>
-    <li><a href="04-absolute-position.html">Absolute position — pinned inside a relative box</a></li>
-    <li><a href="05-flex-centering.html">Flexbox — perfect centering</a></li>
-    <li><a href="06-flex-page.html">Flexbox — header / main / footer page</a></li>
-    <li><a href="07-flex-holy-grail.html">Flexbox — holy grail</a></li>
-    <li><a href="08-grid-page.html">Grid — header / main / footer with named areas</a></li>
-    <li><a href="09-grid-holy-grail.html">Grid — holy grail, remapped by one media query</a></li>
-  </ol>
+  <nav>
+    <p>Nav — <code>grid-area: nav</code>.</p>
+    <ul>
+      <li><a href="#">Link one</a></li>
+      <li><a href="#">Link two</a></li>
+      <li><a href="#">Link three</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Main</h2>
+    <p>Header, nav, main, aside, and footer are all direct children of the body — one grid places everything, where flexbox (demo 07) needed two nested containers.</p>
+    <p>Narrow the window below 40rem: the media query rewrites <code>grid-template-areas</code> and the page restacks as a single column. No region's HTML or other CSS changes.</p>
+  </main>
+
+  <aside>
+    <p>Aside — <code>grid-area: aside</code>, fixed at 12rem on wide screens.</p>
+  </aside>
+
+  <footer>
+    <p>Footer — spans all three columns via <code>"footer footer footer"</code>.</p>
+  </footer>
 </body>
 </html>
