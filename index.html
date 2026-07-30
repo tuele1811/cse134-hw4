@@ -3,115 +3,81 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>09 · Grid holy grail</title>
-  <link rel="stylesheet" href="vars.css">
-  <link rel="stylesheet" href="global.css">
-  <!--
-    GRID HOLY GRAIL
-    The full holy grail in ONE grid container — no wrappers, no nesting.
-    grid-template-areas draws the layout as ASCII art: header and footer
-    span all three columns, nav | main | aside share the middle row.
-    Because every region is placed by name, the single media query below
-    re-draws the whole page as one column just by rewriting the map.
-  -->
-  <style>
-    body {
-      --nav-width: 10rem;
-      --aside-width: 12rem;
-
-      display: grid;
-      grid-template-areas:
-        "header header header"
-        "nav    main   aside"
-        "footer footer footer";
-      grid-template-columns: var(--nav-width) 1fr var(--aside-width);
-      grid-template-rows: auto 1fr auto;
-      min-height: 100svh;
-
-      > header {
-        grid-area: header;
-        padding: var(--space-2) var(--space-3);
-        border-block-end: var(--border);
-        background: var(--panel);
-      }
-
-      > nav {
-        grid-area: nav;
-        padding: var(--space-2);
-        border-inline-end: var(--border);
-        background: var(--panel);
-
-        ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
-      }
-
-      > main {
-        grid-area: main;
-        padding: var(--space-3);
-      }
-
-      > aside {
-        grid-area: aside;
-        padding: var(--space-2);
-        border-inline-start: var(--border);
-        background: var(--panel);
-      }
-
-      > footer {
-        grid-area: footer;
-        padding: var(--space-2) var(--space-3);
-        border-block-start: var(--border);
-        background: var(--panel);
-      }
-
-      @media (max-width: 40rem) {
-        grid-template-areas:
-          "header"
-          "nav"
-          "main"
-          "aside"
-          "footer";
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto auto;
-
-        > nav,
-        > aside {
-          border-inline: none;
-          border-block-end: var(--border);
-        }
-      }
-    }
-  </style>
+  <title>Home | CSE Cheese Society</title>
+  <meta name="description" content="Meet the CSE Cheese Society, explore its cheese guide, and learn how to join a monthly tasting.">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/site.css">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
   <header>
-    <h1>09 · Grid holy grail</h1>
+    <a class="site-identity" href="index.html">
+      <img src="images/logo.svg" alt="" width="64" height="64">
+      <span>CSE Cheese Society</span>
+    </a>
   </header>
-
-  <nav>
-    <p>Nav — <code>grid-area: nav</code>.</p>
+  <nav aria-label="Main navigation">
     <ul>
-      <li><a href="#">Link one</a></li>
-      <li><a href="#">Link two</a></li>
-      <li><a href="#">Link three</a></li>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="guide/index.html">Cheese Guide</a></li>
+      <li><a href="about.html">About the Society</a></li>
+      <li><a href="join.html">Join the Society</a></li>
     </ul>
   </nav>
-
   <main>
-    <h2>Main</h2>
-    <p>Header, nav, main, aside, and footer are all direct children of the body — one grid places everything, where flexbox (demo 07) needed two nested containers.</p>
-    <p>Narrow the window below 40rem: the media query rewrites <code>grid-template-areas</code> and the page restacks as a single column. No region's HTML or other CSS changes.</p>
+    <h1>Welcome to the CSE Cheese Society</h1>
+
+    <p>
+      Our mission is simple: taste widely, take notes, and never let
+      processed cheese food into the building.
+    </p>
+
+    <p>
+      We host monthly tastings, maintain <a href="guide/index.html">A Short
+      Guide to Cheese</a>, and elect a Cheese of the Month by ranked-choice
+      ballot. Election disputes are settled by blind tasting.
+    </p>
+
+    <p>
+      The Society is open to all students, staff, and the lactose-curious.
+      No experience is required. Strong opinions are optional but traditional.
+    </p>
+
+    <p class="home-actions">
+      <a href="guide/index.html">Explore the guide</a>
+      <a href="join.html">Join the Society</a>
+    </p>
+
+    <button type="button" commandfor="cheese-fact" command="toggle-popover">
+      Cheese Fact
+    </button>
+
+    <div id="cheese-fact" popover>
+      <h2>Cheese Fact</h2>
+      <p>
+        Roquefort must be aged in the natural caves of
+        Roquefort-sur-Soulzon in southern France. The same caves have been
+        used for over a thousand years.
+      </p>
+      <button type="button" commandfor="cheese-fact" command="toggle-popover">
+        Close
+      </button>
+    </div>
   </main>
 
   <aside>
-    <p>Aside — <code>grid-area: aside</code>, fixed at 12rem on wide screens.</p>
+    <h2>Cheese of the Month</h2>
+    <img src="images/cheese-hard.svg" alt="A firm wedge of aged hard cheese" width="320" height="240">
+    <h3>Aged Gouda</h3>
+    <p>
+      Months or years of aging produce crystals of crunch and a deep,
+      nutty flavor that rewards the wait.
+    </p>
   </aside>
 
   <footer>
-    <p>Footer — spans all three columns via <code>"footer footer footer"</code>.</p>
+    <p>Copyright 2026 The CSE Cheese Society. Cheese responsibly.</p>
   </footer>
 </body>
 </html>
