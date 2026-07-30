@@ -1,59 +1,76 @@
-/* Reset, type, and color only — every layout rule lives in each demo's own
-   <style>. Both layers below lose to any unlayered rule, so demo styles
-   always override these without specificity fights. */
-
-@layer reset, base;
-
 @layer reset {
-  * {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
-  }
-
-  body,
-  figure {
-    margin: 0;
   }
 }
 
 @layer base {
-  body {
-    background: var(--paper);
+  html {
     color: var(--ink);
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: var(--text-m);
-    line-height: 1.5;
+    background: var(--paper);
+    font-family: var(--font-body);
+    line-height: 1.55;
+  }
+
+  body {
+    color: var(--ink);
+    background: var(--paper);
   }
 
   h1,
-  h2 {
-    margin-block: 0 var(--space-2);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+  h2,
+  h3,
+  summary,
+  button,
+  label,
+  legend,
+  nav {
+    font-family: var(--font-heading);
   }
 
-  h1 { font-size: var(--text-xl); }
-  h2 { font-size: var(--text-l); }
-
-  p {
-    margin-block: 0 var(--space-2);
-  }
-
-  figcaption {
-    font-size: var(--text-s);
+  h1,
+  h2,
+  h3 {
+    line-height: 1.15;
   }
 
   a {
-    color: var(--ink);
-    text-decoration-color: var(--accent);
-    text-decoration-thickness: var(--underline-width);
-
-    &:hover {
-      color: var(--accent);
-    }
+    color: var(--accent-dark);
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.18em;
   }
 
-  code {
-    font-family: ui-monospace, "SF Mono", Menlo, monospace;
-    font-size: 0.9em;
+  a:hover {
+    color: var(--accent);
+  }
+
+  button,
+  input,
+  select {
+    color: inherit;
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  :focus-visible {
+    outline: 0.2rem solid var(--focus);
+    outline-offset: 0.2rem;
+  }
+
+  [aria-current="page"] {
+    font-weight: 700;
+    text-decoration-thickness: 0.18em;
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 700;
   }
 }
