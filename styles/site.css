@@ -1,0 +1,23 @@
+@layer reset, base, components, layout;
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  .family-image-fresh {
+    view-transition-name: cheese-fresh;
+  }
+
+  .family-image-soft {
+    view-transition-name: cheese-soft;
+  }
+
+  .family-image-blue {
+    view-transition-name: cheese-blue;
+  }
+
+  .family-image-hard {
+    view-transition-name: cheese-hard;
+  }
+}
