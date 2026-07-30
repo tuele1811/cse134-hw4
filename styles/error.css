@@ -1,0 +1,90 @@
+@layer layout {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    margin: 0;
+  }
+
+  body > header {
+    padding: var(--space-2) var(--space-3);
+    border-block-end: var(--border);
+    background: var(--panel);
+  }
+
+  .site-identity {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: fit-content;
+    color: inherit;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .site-identity img {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  body > nav {
+    padding: var(--space-1) var(--space-3);
+    border-block-end: var(--border);
+  }
+
+  body > nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  body > main {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-3);
+  }
+
+  .error-card {
+    max-width: 30rem;
+    padding: var(--space-3);
+    border: var(--border);
+    border-block-start: var(--rule);
+    background: var(--panel);
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+
+  .error-card img {
+    display: block;
+    width: min(100%, 18rem);
+    height: auto;
+    margin-inline: auto;
+  }
+
+  body > footer {
+    padding: var(--space-2) var(--space-3);
+    border-block-start: var(--border);
+    background: var(--panel);
+  }
+
+  body > footer p {
+    margin: 0;
+  }
+
+  @media (max-width: 34rem) {
+    body > header,
+    body > nav,
+    body > main,
+    body > footer {
+      padding-inline: var(--space-2);
+    }
+  }
+}
