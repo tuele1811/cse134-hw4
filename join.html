@@ -4,145 +4,38 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Join the Society | CSE Cheese Society</title>
+  <title>Join | CSE Cheese Society</title>
 
   <link rel="stylesheet" href="vars.css">
   <link rel="stylesheet" href="global.css">
-
-  <style>
-    body {
-      --card-width: 32rem;
-
-      display: flex;
-      flex-direction: column;
-      min-height: 100svh;
-      margin: 0;
-    }
-
-    body > header {
-      padding: var(--space-2) var(--space-3);
-      border-block-end: var(--border);
-      background: var(--panel);
-    }
-
-    body > main {
-      display: flex;
-      flex: 1;
-      justify-content: center;
-      align-items: center;
-      padding: var(--space-3);
-    }
-
-    body > footer {
-      padding: var(--space-2) var(--space-3);
-      border-block-start: var(--border);
-      background: var(--panel);
-    }
-
-    .membership-card {
-      width: 100%;
-      max-width: var(--card-width);
-      padding: var(--space-3);
-      border: var(--border);
-      border-block-start: var(--rule);
-      background: var(--panel);
-    }
-
-    .membership-card h2 {
-      margin-block-start: 0;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-1);
-    }
-
-    label,
-    legend {
-      font-weight: bold;
-    }
-
-    input,
-    select,
-    button {
-      font: inherit;
-    }
-
-    input,
-    select {
-      padding: var(--space-1);
-      border: var(--border);
-      background: var(--background);
-      color: inherit;
-    }
-
-    fieldset {
-      margin: 0;
-      padding: var(--space-2);
-      border: var(--border);
-    }
-
-    .checkbox-option {
-      display: block;
-      margin-block-start: var(--space-1);
-      font-weight: normal;
-    }
-
-    .form-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-1);
-      margin-block-start: var(--space-1);
-    }
-
-    button {
-      padding: var(--space-1) var(--space-2);
-      cursor: pointer;
-    }
-
-    dialog {
-      max-width: min(32rem, calc(100% - 2rem));
-      padding: var(--space-3);
-      border: var(--border);
-      border-block-start: var(--rule);
-      background: var(--panel);
-      color: inherit;
-    }
-
-    dialog::backdrop {
-      background: rgb(0 0 0 / 0.65);
-    }
-
-    dialog h2 {
-      margin-block-start: 0;
-    }
-
-    dialog li + li {
-      margin-block-start: var(--space-1);
-    }
-
-    dialog form {
-      align-items: flex-start;
-      margin-block-start: var(--space-2);
-    }
-  </style>
+  <link rel="stylesheet" href="join.css">
 </head>
 
 <body>
   <header>
-    <h1>Join the CSE Cheese Society</h1>
+    <a href="index.html">
+      <img
+        src="images/logo.svg"
+        alt=""
+        width="64"
+        height="64"
+      >
+      <span>CSE Cheese Society</span>
+    </a>
   </header>
 
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="guide/index.html">Cheese Guide</a></li>
+      <li><a href="about.html">About the Society</a></li>
+      <li><a href="join.html" aria-current="page">Join</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <section class="membership-card" aria-labelledby="membership-heading">
-      <h2 id="membership-heading">Become a Member</h2>
+    <section class="membership-card" aria-labelledby="join-heading">
+      <h1 id="join-heading">Join the CSE Cheese Society</h1>
 
       <p>
         Membership is free, meetings are monthly, and the cheese is real.
@@ -150,7 +43,7 @@
       </p>
 
       <form action="#" method="post">
-        <div class="form-field">
+        <p class="form-field">
           <label for="member-name">Name</label>
           <input
             type="text"
@@ -159,9 +52,9 @@
             autocomplete="name"
             required
           >
-        </div>
+        </p>
 
-        <div class="form-field">
+        <p class="form-field">
           <label for="member-email">Email</label>
           <input
             type="email"
@@ -170,10 +63,11 @@
             autocomplete="email"
             required
           >
-        </div>
+        </p>
 
-        <div class="form-field">
+        <p class="form-field">
           <label for="cheese-family">Which family calls to you?</label>
+
           <select id="cheese-family" name="cheese-family">
             <option value="fresh">Fresh</option>
             <option value="soft-ripened">Soft-ripened</option>
@@ -183,36 +77,39 @@
               Undecided — that's why I'm here
             </option>
           </select>
-        </div>
+        </p>
 
         <fieldset>
           <legend>Which of these have you tasted?</legend>
 
-          <label class="checkbox-option">
+          <label>
             <input type="checkbox" name="tasted" value="brie">
             Brie
           </label>
 
-          <label class="checkbox-option">
+          <label>
             <input type="checkbox" name="tasted" value="roquefort">
             Roquefort
           </label>
 
-          <label class="checkbox-option">
+          <label>
             <input type="checkbox" name="tasted" value="aged-gouda">
             Aged Gouda
           </label>
         </fieldset>
 
-        <div class="form-field">
-          <label for="favorite-cheese">Tell us your favorite cheese</label>
+        <p class="form-field">
+          <label for="favorite-cheese">
+            Tell us your favorite cheese
+          </label>
+
           <input
             type="text"
             id="favorite-cheese"
             name="favorite-cheese"
             placeholder="e.g. Comte"
           >
-        </div>
+        </p>
 
         <div class="form-actions">
           <button type="submit">Sign me up</button>
@@ -227,38 +124,40 @@
         </div>
       </form>
     </section>
+
+    <dialog id="why-join-dialog">
+      <h2>Why join?</h2>
+
+      <ul>
+        <li>
+          Monthly tastings. The Society buys the cheese. You bring
+          opinions.
+        </li>
+        <li>
+          Voting rights in the Cheese of the Month election.
+        </li>
+        <li>
+          Access to THE CAVE (a mini-fridge, but a very serious one).
+        </li>
+        <li>
+          A laminated membership card featuring the cheese of your choice.
+        </li>
+        <li>
+          Amnesty program for recovering blue-cheese skeptics.
+        </li>
+      </ul>
+
+      <form method="dialog">
+        <button type="submit">I'm convinced</button>
+      </form>
+    </dialog>
   </main>
 
   <footer>
     <p>
-      The Society provides the cheese; members provide the opinions.
+      CSE Cheese Society — The Society provides the cheese; members provide
+      the opinions.
     </p>
   </footer>
-
-  <dialog id="why-join-dialog">
-    <h2>Why join?</h2>
-
-    <ul>
-      <li>
-        Monthly tastings. The Society buys the cheese. You bring opinions.
-      </li>
-      <li>
-        Voting rights in the Cheese of the Month election.
-      </li>
-      <li>
-        Access to THE CAVE (a mini-fridge, but a very serious one).
-      </li>
-      <li>
-        A laminated membership card featuring the cheese of your choice.
-      </li>
-      <li>
-        Amnesty program for recovering blue-cheese skeptics.
-      </li>
-    </ul>
-
-    <form method="dialog">
-      <button type="submit">I'm convinced</button>
-    </form>
-  </dialog>
 </body>
 </html>
