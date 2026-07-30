@@ -1,90 +1,161 @@
-body {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "nav"
-    "main"
-    "footer";
-  grid-template-rows: auto auto 1fr auto;
-  min-height: 100svh;
-}
+@layer layout {
+  body {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: var(--space-3);
+  }
 
-body > header {
-  grid-area: header;
-  padding: var(--space-2) var(--space-3);
-  border-block-end: var(--border);
-  background: var(--panel);
-}
+  body > header {
+    padding: var(--space-2) var(--space-3);
+    border: var(--border);
+    background: var(--panel);
+  }
 
-body > nav {
-  grid-area: nav;
-  padding: var(--space-1) var(--space-3);
-  border-block-end: var(--border);
-}
+  .site-identity {
+    color: inherit;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
 
-body > nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  .site-identity img {
+    width: 3rem;
+    height: 3rem;
+    margin-inline-end: var(--space-1);
+    vertical-align: middle;
+  }
 
-body > main {
-  grid-area: main;
-  padding: var(--space-3);
-}
+  .site-identity span {
+    vertical-align: middle;
+  }
 
-body > footer {
-  grid-area: footer;
-  padding: var(--space-2) var(--space-3);
-  border-block-start: var(--border);
-  background: var(--panel);
-}
+  body > nav {
+    padding: var(--space-2) var(--space-3);
+    border-inline: var(--border);
+    border-block-end: var(--border);
+    background: var(--panel);
+  }
 
-.family-page {
-  display: grid;
-  grid-template-columns: minmax(14rem, 24rem) minmax(0, 1fr);
-  gap: var(--space-3);
-  width: min(100%, 68rem);
-  margin-inline: auto;
-}
+  body > nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-.family-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: var(--border);
-  background: var(--panel);
-}
+  body > nav li {
+    display: inline;
+  }
 
-.family-copy {
-  max-width: var(--measure);
-}
+  body > nav li + li::before {
+    content: " · ";
+  }
 
-.family-copy h1 {
-  margin-block-start: 0;
-}
+  body > main {
+    padding-block: var(--space-3);
+  }
 
-.cheese-fact {
-  margin-block: var(--space-3);
-  padding: var(--space-2);
-  border-inline-start: var(--rule);
-  background: var(--panel);
-}
+  main > article {
+    padding: var(--space-2) var(--space-3);
+    border-inline-start: var(--rule);
+    background: var(--panel);
+  }
 
-.family-pagination {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-2);
-  margin-block-start: var(--space-3);
-  padding-block-start: var(--space-2);
-  border-block-start: var(--border);
-}
+  .guide-heading {
+    margin-block-end: var(--space-3);
+  }
 
-@media (max-width: 42rem) {
-  .family-page {
-    grid-template-columns: 1fr;
+  .guide-heading h1 {
+    margin-block-end: var(--space-1);
+  }
+
+  .guide-heading p {
+    margin-block-start: 0;
+    color: var(--muted);
+  }
+
+  .family {
+    margin-block: var(--space-3);
+    padding: var(--space-2);
+    border: var(--border);
+    background: var(--paper);
+  }
+
+  .family-link {
+    color: inherit;
+  }
+
+  .family-link h3 {
+    margin-block: var(--space-1);
+  }
+
+  .family-image {
+    display: block;
+    width: 100%;
+    max-width: 22rem;
+    height: auto;
+    margin-inline: auto;
+    border: var(--border);
+    background: var(--panel);
+  }
+
+  .warning {
+    margin-block: var(--space-3);
+    padding: var(--space-2);
+    border-inline-start: var(--rule);
+    background: var(--paper);
+  }
+
+  blockquote {
+    margin: var(--space-3) 0;
+    padding: var(--space-2);
+    border: var(--border);
+    background: var(--paper);
+  }
+
+  fieldset {
+    margin: 0;
+    padding: var(--space-2);
+    border: var(--border);
+  }
+
+  fieldset p {
+    margin-block: var(--space-1);
+  }
+
+  .favorite-field label {
+    display: block;
+    margin-block-end: var(--space-1);
+    font-weight: 700;
+  }
+
+  .favorite-field input {
+    width: 100%;
+    padding: var(--space-1);
+    border: var(--border);
+    background: var(--paper);
+  }
+
+  body > footer {
+    padding: var(--space-2) var(--space-3);
+    border: var(--border);
+    background: var(--panel);
+  }
+
+  body > footer p {
+    margin: 0;
+  }
+
+  @media (max-width: 34rem) {
+    body {
+      padding: var(--space-1);
+    }
+
+    body > header,
+    body > nav,
+    main > article,
+    body > footer {
+      padding-inline: var(--space-2);
+    }
   }
 }
