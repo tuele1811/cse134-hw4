@@ -1,0 +1,90 @@
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100svh;
+}
+
+body > header {
+  grid-area: header;
+  padding: var(--space-2) var(--space-3);
+  border-block-end: var(--border);
+  background: var(--panel);
+}
+
+body > nav {
+  grid-area: nav;
+  padding: var(--space-1) var(--space-3);
+  border-block-end: var(--border);
+}
+
+body > nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body > main {
+  grid-area: main;
+  padding: var(--space-3);
+}
+
+body > footer {
+  grid-area: footer;
+  padding: var(--space-2) var(--space-3);
+  border-block-start: var(--border);
+  background: var(--panel);
+}
+
+.family-page {
+  display: grid;
+  grid-template-columns: minmax(14rem, 24rem) minmax(0, 1fr);
+  gap: var(--space-3);
+  width: min(100%, 68rem);
+  margin-inline: auto;
+}
+
+.family-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--border);
+  background: var(--panel);
+}
+
+.family-copy {
+  max-width: var(--measure);
+}
+
+.family-copy h1 {
+  margin-block-start: 0;
+}
+
+.cheese-fact {
+  margin-block: var(--space-3);
+  padding: var(--space-2);
+  border-inline-start: var(--rule);
+  background: var(--panel);
+}
+
+.family-pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-block-start: var(--space-3);
+  padding-block-start: var(--space-2);
+  border-block-start: var(--border);
+}
+
+@media (max-width: 42rem) {
+  .family-page {
+    grid-template-columns: 1fr;
+  }
+}
