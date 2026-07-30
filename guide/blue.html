@@ -3,59 +3,117 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>08 · Grid page scaffold</title>
-  <link rel="stylesheet" href="vars.css">
-  <link rel="stylesheet" href="global.css">
-  <!--
-    GRID PAGE SCAFFOLD
-    The same header/main/footer page as demo 06, built with grid instead.
-    grid-template-areas names the rows so the CSS reads like a sketch of
-    the page; each region claims its slot with grid-area. Rows are
-    auto 1fr auto: natural height at the edges, main takes the rest.
-  -->
-  <style>
-    body {
-      display: grid;
-      grid-template-areas:
-        "header"
-        "main"
-        "footer";
-      grid-template-rows: auto 1fr auto;
-      min-height: 100svh;
 
-      > header {
-        grid-area: header;
-        padding: var(--space-2) var(--space-3);
-        border-block-end: var(--border);
-        background: var(--panel);
-      }
+  <title>Blue Cheeses | CSE Cheese Society</title>
 
-      > main {
-        grid-area: main;
-        padding: var(--space-3);
-      }
+  <meta
+    name="description"
+    content="Learn about blue cheeses, their sharp flavor, notable varieties, and the caves where Roquefort is aged."
+  >
 
-      > footer {
-        grid-area: footer;
-        padding: var(--space-2) var(--space-3);
-        border-block-start: var(--border);
-        background: var(--panel);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="blue.css">
 </head>
+
 <body>
   <header>
-    <h1>08 · Grid page scaffold</h1>
+    <a class="site-identity" href="../index.html">
+      <img
+        src="../images/logo.svg"
+        alt=""
+        width="64"
+        height="64"
+      >
+      <span>CSE Cheese Society</span>
+    </a>
   </header>
 
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html" aria-current="page">Cheese Guide</a></li>
+      <li><a href="../about.html">About the Society</a></li>
+      <li><a href="../join.html">Join the Society</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <p>Main — this region is placed with <code>grid-area: main</code> into the <code>1fr</code> row, so it takes all the height the header and footer leave over.</p>
-    <p>Compare the CSS with demo 06: no growing children, just three named rows.</p>
+    <article class="family-page">
+      <img
+        class="family-image family-image-blue"
+        src="../images/blue.svg"
+        alt="A wedge of blue cheese with blue-green veins"
+        width="800"
+        height="600"
+      >
+
+      <div class="family-copy">
+        <h1>Blue Cheeses</h1>
+
+        <p>
+          Veined with <i>Penicillium roqueforti</i>, blue cheeses are
+          pierced with needles so air reaches the interior and the blue
+          mold can bloom along the channels.
+        </p>
+
+        <section aria-labelledby="character-heading">
+          <h2 id="character-heading">Character</h2>
+
+          <p>
+            Salty, sharp, and divisive. The paste ranges from creamy to
+            crumbly; the veins carry a peppery, metallic tang that people
+            either chase or flee.
+          </p>
+        </section>
+
+        <section aria-labelledby="members-heading">
+          <h2 id="members-heading">Notable members</h2>
+
+          <p>
+            Roquefort, Gorgonzola, Stilton, and Cabrales.
+          </p>
+        </section>
+
+        <section aria-labelledby="enjoy-heading">
+          <h2 id="enjoy-heading">How to enjoy</h2>
+
+          <p>
+            With something sweet—pears, honey, port. Blue cheese plus
+            dessert wine is the oldest peace treaty in food.
+          </p>
+        </section>
+
+        <section class="cheese-fact" aria-labelledby="fact-heading">
+          <h2 id="fact-heading">Did you know?</h2>
+
+          <p>
+            Roquefort must, by law, be aged in the natural caves of
+            Roquefort-sur-Soulzon in southern France. The same caves have
+            been used for over a thousand years.
+          </p>
+        </section>
+
+        <nav class="family-pagination" aria-label="Cheese family pages">
+          <a href="soft-ripened.html">
+            <span aria-hidden="true">←</span>
+            Soft-ripened
+          </a>
+
+          <a href="hard.html">
+            Hard
+            <span aria-hidden="true">→</span>
+          </a>
+        </nav>
+      </div>
+    </article>
   </main>
 
   <footer>
-    <p>Footer — sits in the last named row, pinned to the bottom by the 1fr row above it.</p>
+    <p>
+      CSE Cheese Society — Taste widely, take notes, and respect the rind.
+    </p>
   </footer>
 </body>
 </html>
