@@ -3,40 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>05 · Flex centering</title>
-  <link rel="stylesheet" href="vars.css">
-  <link rel="stylesheet" href="global.css">
-  <!--
-    FLEX CENTERING
-    The body is a flex container filling the viewport (min-height: 100svh).
-    justify-content centers its child on the main axis (horizontal here)
-    and align-items centers it on the cross axis (vertical) — perfect
-    centering in three lines, the problem floats never solved.
-  -->
-  <style>
-    body {
-      --card-width: 28rem;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100svh;
-      padding: var(--space-3);
-
-      main {
-        max-width: var(--card-width);
-        padding: var(--space-3);
-        border: var(--border);
-        border-block-start: var(--rule);
-        background: var(--panel);
-      }
-    }
-  </style>
+  <title>Page Not Found | CSE Cheese Society</title>
+  <meta name="description" content="The requested CSE Cheese Society page could not be found.">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/site.css">
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/not-found.css">
 </head>
 <body>
+  <header>
+    <a class="site-identity" href="/index.html">
+      <img src="/images/logo.svg" alt="" width="64" height="64">
+      <span>CSE Cheese Society</span>
+    </a>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/guide/index.html">Cheese Guide</a></li>
+      <li><a href="/about.html">About the Society</a></li>
+      <li><a href="/join.html">Join the Society</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <h1>404 Error</h1>
-    <p>Sorry the he server cannot find the web page you requested because the link is broken, the address has a typo, or the page was deleted. </p>
+    <article class="error-card">
+      <img src="/images/sad-cheese.svg" alt="A sad piece of cheese" width="320" height="240">
+      <h1>404: Cheese Not Found</h1>
+      <p>
+        The server could not find this page. The link may be broken, the
+        address may contain a typo, or the page may have moved.
+      </p>
+      <p><a href="/index.html">Return to the home page</a></p>
+    </article>
   </main>
+
+  <footer>
+    <p>Copyright 2026 The CSE Cheese Society. Cheese responsibly.</p>
+  </footer>
 </body>
 </html>
