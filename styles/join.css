@@ -1,0 +1,134 @@
+body {
+  --card-width: 32rem;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+body > header {
+  padding: var(--space-2) var(--space-3);
+  border-block-end: var(--border);
+  background: var(--panel);
+}
+
+body > header a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+body > nav {
+  padding: var(--space-1) var(--space-3);
+  border-block-end: var(--border);
+}
+
+body > nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body > main {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-3);
+}
+
+body > footer {
+  padding: var(--space-2) var(--space-3);
+  border-block-start: var(--border);
+  background: var(--panel);
+}
+
+.membership-card {
+  width: 100%;
+  max-width: var(--card-width);
+  padding: var(--space-3);
+  border: var(--border);
+  border-block-start: var(--rule);
+  background: var(--panel);
+}
+
+.membership-card h1 {
+  margin-block-start: 0;
+}
+
+.membership-card > form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+}
+
+label,
+legend {
+  font-weight: bold;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  padding: var(--space-1);
+  border: var(--border);
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-2);
+  border: var(--border);
+}
+
+fieldset label {
+  font-weight: normal;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+button {
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+}
+
+dialog {
+  width: min(32rem, calc(100% - 2rem));
+  padding: var(--space-3);
+  border: var(--border);
+  border-block-start: var(--rule);
+  background: var(--panel);
+  color: inherit;
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.65);
+}
+
+dialog h2 {
+  margin-block-start: 0;
+}
