@@ -1,0 +1,119 @@
+@layer layout {
+  body {
+    --figure-width: 15rem;
+
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: var(--space-3);
+  }
+
+  body > header {
+    padding: var(--space-2) var(--space-3);
+    border: var(--border);
+    background: var(--panel);
+  }
+
+  .site-identity {
+    color: inherit;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .site-identity img {
+    width: 3rem;
+    height: 3rem;
+    margin-inline-end: var(--space-1);
+    vertical-align: middle;
+  }
+
+  .site-identity span {
+    vertical-align: middle;
+  }
+
+  body > nav {
+    padding: var(--space-2) var(--space-3);
+    border-inline: var(--border);
+    border-block-end: var(--border);
+    background: var(--panel);
+  }
+
+  body > nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  body > nav li {
+    display: inline;
+  }
+
+  body > nav li + li::before {
+    content: " · ";
+  }
+
+  body > main {
+    padding-block: var(--space-3);
+  }
+
+  article figure {
+    float: left;
+    width: var(--figure-width);
+    margin: 0 var(--space-2) var(--space-1) 0;
+    padding: var(--space-2);
+    border: var(--border);
+    background: var(--panel);
+  }
+
+  article figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-block-end: var(--space-1);
+  }
+
+  article figcaption {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .board {
+    clear: both;
+    padding-block-start: var(--space-3);
+  }
+
+  .board details {
+    margin-block: var(--space-2);
+    padding: var(--space-2);
+    border: var(--border);
+    background: var(--panel);
+  }
+
+  .board details p:last-child {
+    margin-block-end: 0;
+  }
+
+  body > footer {
+    clear: both;
+    padding: var(--space-2) var(--space-3);
+    border: var(--border);
+    background: var(--panel);
+  }
+
+  body > footer p {
+    margin: 0;
+  }
+
+  @media (max-width: 34rem) {
+    body {
+      padding: var(--space-1);
+    }
+
+    article figure {
+      float: none;
+      width: 100%;
+      margin: 0 0 var(--space-2);
+    }
+  }
+}
